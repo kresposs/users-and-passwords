@@ -44,7 +44,7 @@ def nameGenerator(usrList):
 def main():
 #while True:
 
-    banner = pyfiglet.figlet_format('FGT-3000D')
+    banner = pyfiglet.figlet_format('BULK MODE FTW')
     print(banner)
     print('\n')
 
