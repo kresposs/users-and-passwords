@@ -1,22 +1,25 @@
 """
 This script lets you create, in bulk mode, various username and password, for SSL VPN or other stuff.
 """
-import random, sys, pyfiglet
+import random 
+import sys
+import pyfiglet
 
 #Function that creates the random password 
 def passwordGenerator(pwdList):
     alphabet = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     alphabetPlusSymbols = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ-_!.$"
 
-    print('Di quante password hai bisogno?')
+    print("Number of passwords needed:")
     requestedPwd = int(input())
-    print('Scegli lunghezza della password: ')
+    itemsNeeded = requestedPwd
+    print("Password(s) leght")
     lenght = int(input())
-    print('Caratteri speciali? [s/n]')
+    print("Special characters? [y/n]")
     symbolChoice = input()
 
     for i in range(requestedPwd):
-        if symbolChoice == 's' or symbolChoice == 'S':
+        if symbolChoice == 'y' or symbolChoice == 'Y':
             passwordGenerated = ''.join(random.sample(alphabetPlusSymbols, lenght))
             pwdList.append(passwordGenerated)
         elif symbolChoice == 'n' or symbolChoice == 'N':
@@ -29,9 +32,9 @@ def passwordGenerator(pwdList):
 #Function that creates the username list, starting from 1, not zero!
 def nameGenerator(usrList):
 
-    print("Seleziona il suffisso: ")
+    print("Select the suffix for the username: ")
     suffix = input()
-    print("Quanti username?")
+    print("Number of username: ")
     entries = int(input())
     for i in range(1, entries+1):
         userNames = suffix + str(i)
@@ -40,9 +43,8 @@ def nameGenerator(usrList):
     return(usrList)
     
 
-#FUNZIONE PRINCIPALE
+#Main function
 def main():
-#while True:
 
     banner = pyfiglet.figlet_format('BULK MODE FTW')
     print(banner)
